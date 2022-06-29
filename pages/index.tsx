@@ -1,16 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useQuery } from "react-query";
 
-import { UserService } from "../src/services";
-
-import styles from "../styles/Home.module.css";
+import styles from "@styles/Home.module.css";
+import { useRequest } from "@src/hooks";
 
 const Home: NextPage = () => {
-  const { data: me } = useQuery("me", UserService.me, {
-    refetchInterval: 500,
-  });
+  // refetchInterval : 0.5s마다 fetch.
+  // data를 me라는 변수명으로 바꾸어 사용한다.
+  const { data: me } = useRequest();
 
   console.log("내 정보입니다", me);
 
