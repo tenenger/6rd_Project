@@ -19,7 +19,8 @@
       "@constants/*": ["constants/*"],
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
