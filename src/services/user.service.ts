@@ -1,29 +1,24 @@
-import axios from "axios";
-import cookies from "js-cookie";
+import { USERME_URL, USER_URL } from "@constants/url";
+import { getAccessToken } from "@utils/token";
+import { User } from "@utils/user";
 
-class UserService {
+class UserService extends User {
   async me() {
-    const accessToken = cookies.get("accessToken");
-    if (!accessToken) {
-      return;
-    }
+    // accessToken을 받는다.
+    const accessToken = getAccessToken();
+    if (!accessToken) return;
 
-    const { data } = await axios.get(
-      process.env.NEXT_PUBLIC_API_HOST + "/users/me",
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+    // axios 인스턴스를 생성, API 호출
+    const instance = super.user(accessToken);
+    const { data } = await instance.get(USERME_URL);
 
     return data;
   }
 
   async read(id: number) {
-    const { data } = await axios.get(
-      process.env.NEXT_PUBLIC_API_HOST + "/users/" + id
-    );
+    // axios 인스턴스를 생성, API 호출
+    const instance = super.getId();
+    const { data } = await instance.get(USER_URL + id);
 
     return data;
   }
