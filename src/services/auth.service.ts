@@ -1,7 +1,7 @@
 import axios from "axios";
 import { LOGIN_URL, REFRESH_URL, SIGNUP_URL } from "@constants/url";
 import { getRefreshToken, setAccessToken, setRefreshToken } from "@utils/token";
-import { Auth } from "@utils/auth";
+import { Service } from "@utils/service";
 
 type SignupAgreements = {
   privacy: boolean;
@@ -14,7 +14,7 @@ type SignupAgreements = {
     | false;
 };
 
-class AuthService extends Auth {
+class AuthService extends Service {
   /** refreshToken을 이용해 새로운 토큰을 발급받습니다. */
   async refresh() {
     // refreshToken을 받는다.
@@ -22,7 +22,7 @@ class AuthService extends Auth {
     if (!refreshToken) return;
 
     // axios 인스턴스를 생성, API 호출
-    const instance = super.authRefresh(refreshToken);
+    const instance = super.refreshService(refreshToken);
     const { data } = await instance.post(REFRESH_URL);
 
     // accessToken과 refreshToken을 쿠키에 저장
@@ -48,7 +48,7 @@ class AuthService extends Auth {
     };
 
     // axios 인스턴스를 생성, API 호출
-    const instance = super.auth();
+    const instance = super.service();
     const { data } = await instance.post(SIGNUP_URL, body);
 
     // accessToken과 refreshToken을 쿠키에 저장
@@ -62,7 +62,7 @@ class AuthService extends Auth {
     const body = { email, password };
 
     // axios 인스턴스를 생성, API 호출
-    const instance = super.auth();
+    const instance = super.service();
     const { data } = await instance.post(LOGIN_URL, body);
 
     // accessToken과 refreshToken을 쿠키에 저장
