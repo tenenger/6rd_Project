@@ -4,7 +4,6 @@ import { SButton } from "./Button.style";
 // 원래 forwardRef는 컴포넌트에 ref를 부여할때 사용한다.
 // Link 태그안에 a 태그는 ref 속성을 갖기 때문에, forwardRef를 사용하게되었다.
 const Button = forwardRef(({ children, ...rest }: any, ref: any) => {
-  console.log(rest);
   return (
     <SButton {...rest} ref={ref}>
       {children}
