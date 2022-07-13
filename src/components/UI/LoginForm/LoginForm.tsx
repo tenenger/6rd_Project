@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 
 import { EMAIL_REGEX } from "@constants/regex";
 import { Button, FormInput, Text } from "@src/components/common";
-import { SImage, SForm } from "./LoginForm.style";
-import Image from "next/image";
+import { SFormInputs } from "./LoginForm.style";
+import Logo from "@src/components/common/Logo/Logo";
+import FormLabel from "@src/components/common/FormLabel/FormLabel";
+import { MdOutlineLocalPostOffice, RiLockLine } from "@constants/formIcon";
 
 const LoginForm = () => {
   const {
@@ -36,25 +38,28 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <SImage>
-        <Image src="/coupang.png" width={195} height={46} alt="coupang_logo" />
-      </SImage>
-      <SForm>
-        <FormInput
-          {...email}
-          errorMessage={errors.email && <Text>{errors.email.message}</Text>}
-          type="email"
-          placeholder="아이디(이메일)"
-        />
-        <FormInput
-          {...password}
-          errorMessage={
-            errors.password && <Text>{errors.password.message}</Text>
-          }
-          type="password"
-          placeholder="비밀번호"
-        />
-      </SForm>
+      <Logo />
+      <SFormInputs>
+        <FormLabel isError={Boolean(errors.email)}>
+          <>
+            <div>
+              <MdOutlineLocalPostOffice />
+            </div>
+            <FormInput {...email} type="email" placeholder="아이디(이메일)" />
+          </>
+        </FormLabel>
+        {errors.email && <Text>{errors.email.message}</Text>}
+
+        <FormLabel isError={Boolean(errors.password)}>
+          <>
+            <div>
+              <RiLockLine />
+            </div>
+            <FormInput {...password} type="password" placeholder="비밀번호" />
+          </>
+        </FormLabel>
+        {errors.password && <Text>{errors.password.message}</Text>}
+      </SFormInputs>
       {/* type 속성을 주어, submit 기능 구현 */}
       <Button type="submit">로그인</Button>
     </form>

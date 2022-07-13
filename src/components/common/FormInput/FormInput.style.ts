@@ -21,8 +21,5 @@ export const SFormInput = styled.input<FormInput>`
   padding: 16px 0 12px;
 
   transition: border-color 0.25s ease;
-  border-bottom: ${(props) => !!props.isError && "2px solid red"};
-  &:focus {
-    border-bottom: 2px solid #0873e3;
-  }
+  border-bottom: ${(props) => props.isError && "2px solid red"};
 `;
