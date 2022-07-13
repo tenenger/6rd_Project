@@ -61,7 +61,7 @@ const LoginForm = () => {
         {errors.password && <Text>{errors.password.message}</Text>}
       </SFormInputs>
       {/* type 속성을 주어, submit 기능 구현 */}
-      <Button type="submit">로그인</Button>
+      <Button label="로그인" type="submit" />
     </form>
   );
 };

@@ -9,7 +9,7 @@ const LoginPage = () => {
       <LoginForm />
       <Link href="/auth/signup">
         {/* a 태그 대신, Button 컴포넌트 사용 : forwardRef */}
-        <Button type="button">회원가입</Button>
+        <Button label="회원가입" type="button" />
       </Link>
     </Layout>
   );

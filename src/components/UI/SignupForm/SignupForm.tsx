@@ -176,7 +176,7 @@ const SignupForm = () => {
         {errors.requireSelect && <Text>{errors.requireSelect.message}</Text>}
       </SSelect>
 
-      <Button type="submit">동의하고 가입하기</Button>
+      <Button label="동의하고 가입하기" type="submit" />
     </form>
   );
 };
