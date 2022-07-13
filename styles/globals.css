@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* <input>태그의 type='number'일때 숫자 증감 화살표 제거 style */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox  */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
