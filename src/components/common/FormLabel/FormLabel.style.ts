@@ -9,8 +9,10 @@ export const SFormLabel = styled.label<SFormLabel>`
   align-items: center;
   cursor: pointer;
   border-bottom: ${(props) => props.isError && "2px solid red"};
+  transition: border-color 0.25s ease;
 
   &:focus-within {
+    transition: border-color 0s;
     border-bottom: 2px solid #0873e3;
   }
 

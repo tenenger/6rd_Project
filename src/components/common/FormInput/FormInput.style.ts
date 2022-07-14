@@ -20,6 +20,6 @@ export const SFormInput = styled.input<FormInput>`
   margin: 2.9% 0 0;
   padding: 16px 0 12px;
 
-  transition: border-color 0.25s ease;
   border-bottom: ${(props) => props.isError && "2px solid red"};
+  transition: border-color 0.25s ease;
 `;
