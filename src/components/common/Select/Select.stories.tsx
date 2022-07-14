@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof Select> = (args) => {
 export const Require = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Require.args = {
-  data: [{ comment: "checkBox" }],
+  data: [{ comment: "이렇게 하는 게 맞나요?" }],
 };
