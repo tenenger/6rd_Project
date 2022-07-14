@@ -1,16 +1,6 @@
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef } from "react";
 import { SButton } from "./Button.style";
-
-type ButtonProps = {
-  /**
-   * 버튼 이름를 설정합니다.
-   */
-  label: string;
-  /**
-   * 버튼 타입에 따라 글자 색과 바탕 색이 변경됩니다.
-   */
-  type: "submit" | "button";
-};
+import { ButtonProps } from "@src/models/button";
 
 const Button = forwardRef(
   ({ label, ...rest }: ButtonProps, ref: React.Ref<any>) => {

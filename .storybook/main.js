@@ -1,4 +1,4 @@
-// const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   stories: [
@@ -15,11 +15,22 @@ module.exports = {
   core: {
     builder: "@storybook/builder-webpack5",
   },
-  // webpackFinal: async (config) => ({
-  //   ...config,
-  //   resolve: {
-  //     ...config.resolve,
-  //     ...config.resolve.plugins.push(new TsconfigPathsPlugin()),
-  //   },
-  // }),
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
+  },
+  webpackFinal: async (config) => {
+    if (config.resolve.plugins) {
+      config.resolve.plugins.push(new TsconfigPathsPlugin());
+    } else {
+      config.resolve.plugins = [new TsconfigPathsPlugin()];
+    }
+    return config;
+  },
 };
