@@ -36,3 +36,4 @@ yarn-error.log*
 
 # chromatic
 /.github
+/build-storybook.log
