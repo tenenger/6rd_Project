@@ -15,7 +15,7 @@ export default function LoginPage() {
         <input {...register("email")} />
         <input {...register("password")} />
         <button type="submit">로그인</button>
-        <a href="/auth/signup">회원가입</a>
+        {/* <a href="/auth/signup">회원가입</a> */}
       </form>
     </Wrapper>
   );
