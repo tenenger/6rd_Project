@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { SLayout, SQuantityInput, SArrow } from "./QuantityInput.style";
 
 const QuantityInput = () => {
   const [count, setCount] = useState<number>(1);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (count < 0 || count > 6) {
       return setCount(count);
     }
     const { value } = e.target;
     const regex = /[^1-6]/g;
-    const onlyNumber = value.replace(regex, "");
+    const onlyNumber = parseInt(value.replace(regex, ""));
     setCount(onlyNumber);
   };
 
