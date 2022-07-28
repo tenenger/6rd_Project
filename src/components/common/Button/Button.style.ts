@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ButtonProps } from "../../../types";
+import { ButtonProps } from "@src/types";
 
 export const SButton = styled.button<ButtonProps>`
   display: inline-block;

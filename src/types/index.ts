@@ -23,7 +23,7 @@ export interface VendorDetailMoreProps {
 
 export interface ButtonProps {
   children: React.ReactNode;
-  type: string;
+  type: "button" | "submit" | "reset";
   onClick?: () => void;
 }
 
